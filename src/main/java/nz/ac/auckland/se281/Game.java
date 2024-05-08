@@ -11,7 +11,14 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
-  public void play() {}
+  public void play() {
+    int round = 1;
+    MessageCli.START_ROUND.printMessage(Integer.toString(round));
+
+    // getting a valid human input
+    String humanInput = Utils.scanner.nextLine();
+
+  }
 
   public void endGame() {}
 
