@@ -13,7 +13,7 @@ public class Player {
     this.choice = choice;
   }
 
-  public static String getPlayerInput() {
+  public static int getPlayerInput() {
     String playerInput;
     int inputInt = 0;
 
@@ -31,10 +31,14 @@ public class Player {
       }
     }
 
-    return playerInput;
+    return Integer.parseInt(playerInput);
   }
 
   public String getPlayerName() {
     return playerName;
+  }
+
+  public Choice getChoice() {
+    return choice;
   }
 }

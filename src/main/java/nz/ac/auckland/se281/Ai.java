@@ -5,5 +5,9 @@ public interface Ai {
 
   public void setStrategy();
 
-  public String getAiInput();
+  public int getAiInput();
+
+  public void setAiChoice(String choice);
+
+  public String getAiChoice();
 }

@@ -4,6 +4,7 @@ public class Hard implements Ai {
 
   // Easy difficulty only uses the random strategy
   Strategy strategy;
+  String choice;
 
   @Override
   public void setStrategy() {
@@ -12,8 +13,18 @@ public class Hard implements Ai {
   }
 
   @Override
-  public String getAiInput() {
+  public int getAiInput() {
     setStrategy();
-    return Integer.toString(((Random) strategy).selectNumber());
+    return ((Random) strategy).selectNumber();
+  }
+
+  @Override
+  public void setAiChoice(String choice) {
+    this.choice = choice;
+  }
+
+  @Override
+  public String getAiChoice() {
+    return choice;
   }
 }
