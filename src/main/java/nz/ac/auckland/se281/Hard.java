@@ -2,20 +2,21 @@ package nz.ac.auckland.se281;
 
 public class Hard implements Ai {
 
-  // Easy difficulty only uses the random strategy
+  /* Hard difficulty AI uses the random strategy for the first three rounds,
+  then the AI will switch strategies if it loses the previous round */
+
   Strategy strategy;
   String choice;
 
   @Override
-  public void setStrategy() {
-    Random randomStrategy = new Random();
-    this.strategy = randomStrategy;
+  public void setStrategy(Strategy strategy) {
+    this.strategy = strategy;
   }
 
   @Override
-  public int getAiInput() {
-    setStrategy();
-    return ((Random) strategy).selectNumber();
+  public int getAiInput(int round, Player player) {
+    // setStrategy();
+    return strategy.selectNumber();
   }
 
   @Override

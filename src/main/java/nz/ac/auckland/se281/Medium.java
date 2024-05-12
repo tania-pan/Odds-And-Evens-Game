@@ -2,20 +2,25 @@ package nz.ac.auckland.se281;
 
 public class Medium implements Ai {
 
-  // Easy difficulty only uses the random strategy
+  /* Medium difficulty AI uses random strategy for the first three rounds,
+  then top strategy for the rest of the game */
+
   Strategy strategy;
   String choice;
 
   @Override
-  public void setStrategy() {
-    Random randomStrategy = new Random();
-    this.strategy = randomStrategy;
+  public void setStrategy(Strategy strategy) {
+    this.strategy = strategy;
   }
 
   @Override
-  public int getAiInput() {
-    setStrategy();
-    return ((Random) strategy).selectNumber();
+  public int getAiInput(int round, Player player) {
+    if (round <= 3) {
+      setStrategy(new Random());
+    } else {
+      setStrategy(new Top());
+    }
+    return strategy.selectNumber();
   }
 
   @Override
