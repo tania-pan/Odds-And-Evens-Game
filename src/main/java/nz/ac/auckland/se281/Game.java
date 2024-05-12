@@ -5,7 +5,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Game {
 
-  Player humanPlayer;
+  Player player;
   Difficulty difficulty;
   int round;
 
@@ -13,17 +13,21 @@ public class Game {
 
     Player humanPlayer = new Player(choice, options[0]);
 
-    this.humanPlayer = humanPlayer;
+    this.player = humanPlayer;
     this.difficulty = difficulty;
     round = 1;
 
-    MessageCli.WELCOME_PLAYER.printMessage(humanPlayer.getPlayerName());
+    MessageCli.WELCOME_PLAYER.printMessage(player.getPlayerName());
   }
 
   public void play() {
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
-    MessageCli.PRINT_INFO_HAND.printMessage(humanPlayer.getPlayerName(), Player.getPlayerInput());
+    MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Player.getPlayerInput());
     round++;
+
+    // creating AI instance
+    Ai Hal9000 = AiCreator.createAi(difficulty);
+    MessageCli.PRINT_INFO_HAND.printMessage(Ai.aiName, Hal9000.getAiInput().toString());
   }
 
   public void endGame() {}

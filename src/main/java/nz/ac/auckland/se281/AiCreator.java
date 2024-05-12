@@ -9,10 +9,10 @@ public class AiCreator {
     switch (difficulty) {
       case EASY:
         return new Easy();
-        //   case MEDIUM:
-        //     return new Medium();
-        //   case HARD:
-        //     return new Hard();
+      case MEDIUM:
+        return new Medium();
+      case HARD:
+        return new Hard();
       default:
         return null;
     }

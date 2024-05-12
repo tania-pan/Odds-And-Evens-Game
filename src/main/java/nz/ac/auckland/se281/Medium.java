@@ -1,8 +1,8 @@
 package nz.ac.auckland.se281;
 
-public class Easy implements Ai {
+public class Medium implements Ai {
 
-  // Easy difficulty only uses the random strategy
+    // Easy difficulty only uses the random strategy
   Strategy strategy;
 
   @Override
@@ -16,4 +16,5 @@ public class Easy implements Ai {
     setStrategy();
     return Integer.toString(((Random) strategy).selectNumber());
   }
+  
 }

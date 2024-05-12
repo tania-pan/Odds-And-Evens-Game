@@ -11,22 +11,24 @@ public class Player {
 
     this.playerName = playerName;
     this.choice = choice;
-
-    MessageCli.WELCOME_PLAYER.printMessage(playerName);
   }
 
   public static String getPlayerInput() {
     String playerInput;
-    int inputInt;
+    int inputInt = 0;
 
     MessageCli.ASK_INPUT.printMessage();
     playerInput = Utils.scanner.nextLine();
-    inputInt = Integer.parseInt(playerInput);
+    if (Utils.isInteger(playerInput)) {
+      inputInt = Integer.parseInt(playerInput);
+    }
 
-    while (!Utils.isInteger(playerInput) || !(inputInt <= 5) || !(inputInt >= 0)) {
+    while (!(inputInt <= 5) || !(inputInt >= 0)) {
       MessageCli.INVALID_INPUT.printMessage();
       playerInput = Utils.scanner.nextLine();
-      inputInt = Integer.parseInt(playerInput);
+      if (Utils.isInteger(playerInput)) {
+        inputInt = Integer.parseInt(playerInput);
+      }
     }
 
     return playerInput;
@@ -34,9 +36,5 @@ public class Player {
 
   public String getPlayerName() {
     return playerName;
-  }
-
-  public Choice getChoice() {
-    return choice;
   }
 }

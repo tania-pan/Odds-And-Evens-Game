@@ -1,6 +1,6 @@
 package nz.ac.auckland.se281;
 
-public class Easy implements Ai {
+public class Hard implements Ai {
 
   // Easy difficulty only uses the random strategy
   Strategy strategy;
