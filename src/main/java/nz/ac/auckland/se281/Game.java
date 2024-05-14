@@ -47,7 +47,20 @@ public class Game {
     determineWinner(playerInput, aiInput);
   }
 
-  public void endGame() {}
+  public void endGame() {
+
+    showStats();
+
+    if (player.getWinCount() > (round - player.getWinCount())) {
+      MessageCli.PRINT_END_GAME.printMessage(player.getPlayerName());
+    } else if ((round - player.getWinCount()) > player.getWinCount()) {
+      MessageCli.PRINT_END_GAME.printMessage(Ai.aiName);
+    } else {
+      MessageCli.PRINT_END_GAME_TIE.printMessage(Ai.aiName);
+    }
+
+    gameStarted = false;
+  }
 
   public void showStats() {
 
