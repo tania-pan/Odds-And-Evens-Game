@@ -56,6 +56,7 @@ public class Game {
     if (resultParity.equals(player.getChoice())) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), player.getPlayerName());
+      HAL9000.setWinLastRound(false);
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), Ai.aiName);

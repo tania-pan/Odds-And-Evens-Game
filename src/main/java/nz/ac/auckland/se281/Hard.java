@@ -22,9 +22,14 @@ public class Hard implements Ai {
   public int getAiInput(int round, Player player) {
     if (round <= 3) {
       setStrategy(new Random());
-    } else {
-      if (winLastRound == false) setStrategy(new Top(player));
+    } else if (winLastRound == false) {
+      if (strategy instanceof Random) {
+        setStrategy(new Top(player));
+      } else if (strategy instanceof Top) {
+        setStrategy(new Random());
+      }
     }
+
     return strategy.selectNumber();
   }
 
