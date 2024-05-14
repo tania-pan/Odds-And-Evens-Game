@@ -19,7 +19,7 @@ public class Game {
     this.player = player;
     this.HAL9000 = HAL9000;
     this.difficulty = difficulty;
-    round = 1;
+    round = 0;
     gameStarted = true;
 
     MessageCli.WELCOME_PLAYER.printMessage(player.getPlayerName());
@@ -32,8 +32,8 @@ public class Game {
       return;
     }
 
-    MessageCli.START_ROUND.printMessage(Integer.toString(round));
     round++;
+    MessageCli.START_ROUND.printMessage(Integer.toString(round));
 
     // getting human player input
     int playerInput = player.getPlayerInput();
@@ -49,7 +49,18 @@ public class Game {
 
   public void endGame() {}
 
-  public void showStats() {}
+  public void showStats() {
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        player.getPlayerName(),
+        Integer.toString(player.getWinCount()),
+        Integer.toString(round - player.getWinCount()));
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        Ai.aiName,
+        Integer.toString(round - player.getWinCount()),
+        Integer.toString(player.getWinCount()));
+  }
 
   public void determineWinner(int playerInput, int aiInput) {
     int result = playerInput + aiInput;
@@ -65,6 +76,7 @@ public class Game {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), player.getPlayerName());
       HAL9000.setWinLastRound(false);
+      player.addWin(true);
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), Ai.aiName);

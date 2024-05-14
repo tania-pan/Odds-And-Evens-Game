@@ -6,8 +6,9 @@ public class Player {
 
   private String playerName;
   private Choice choice;
-  private int oddCount;
-  private int evenCount;
+  private int oddCount = 0;
+  private int evenCount = 0;
+  private int winCount = 0;
 
   public Player(Choice choice, String playerName) {
 
@@ -56,5 +57,13 @@ public class Player {
 
   public int getEven() {
     return evenCount;
+  }
+
+  public void addWin(boolean win) {
+    this.winCount++;
+  }
+
+  public int getWinCount() {
+    return winCount;
   }
 }
