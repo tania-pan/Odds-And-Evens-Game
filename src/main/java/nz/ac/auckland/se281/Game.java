@@ -64,11 +64,19 @@ public class Game {
 
   public void showStats() {
 
+    // if game has not started, do not show stats
+    if (!gameStarted) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
+    // print wins and losses of player
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         player.getPlayerName(),
         Integer.toString(player.getWinCount()),
         Integer.toString(round - player.getWinCount()));
 
+    // print wins and losses of AI
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         Ai.aiName,
         Integer.toString(round - player.getWinCount()),
