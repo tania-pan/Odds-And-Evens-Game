@@ -18,7 +18,7 @@ public class Medium implements Ai {
     if (round <= 3) {
       setStrategy(new Random());
     } else {
-      setStrategy(new Top());
+      setStrategy(new Top(player));
     }
     return strategy.selectNumber();
   }

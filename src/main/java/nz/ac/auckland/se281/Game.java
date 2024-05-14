@@ -28,7 +28,7 @@ public class Game {
     round++;
 
     // getting human player input
-    int playerInput = Player.getPlayerInput();
+    int playerInput = player.getPlayerInput();
     MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Integer.toString(playerInput));
 
     // getting AI input
@@ -36,6 +36,14 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(Ai.aiName, Integer.toString(aiInput));
 
     // determining winner
+    determineWinner(playerInput, aiInput);
+  }
+
+  public void endGame() {}
+
+  public void showStats() {}
+
+  public void determineWinner(int playerInput, int aiInput) {
     int result = playerInput + aiInput;
     Choice resultParity;
 
@@ -53,8 +61,4 @@ public class Game {
           Integer.toString(result), resultParity.name(), Ai.aiName);
     }
   }
-
-  public void endGame() {}
-
-  public void showStats() {}
 }

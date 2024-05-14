@@ -6,6 +6,8 @@ public class Player {
 
   private String playerName;
   private Choice choice;
+  private int oddCount;
+  private int evenCount;
 
   public Player(Choice choice, String playerName) {
 
@@ -13,7 +15,7 @@ public class Player {
     this.choice = choice;
   }
 
-  public static int getPlayerInput() {
+  public int getPlayerInput() {
     String playerInput;
     int inputInt = 0;
 
@@ -31,6 +33,12 @@ public class Player {
       }
     }
 
+    if (Utils.isEven(inputInt)) {
+      evenCount++;
+    } else {
+      oddCount++;
+    }
+
     return Integer.parseInt(playerInput);
   }
 
@@ -40,5 +48,13 @@ public class Player {
 
   public Choice getChoice() {
     return choice;
+  }
+
+  public int getOdd() {
+    return oddCount;
+  }
+
+  public int getEven() {
+    return evenCount;
   }
 }
