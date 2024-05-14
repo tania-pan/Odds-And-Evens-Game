@@ -9,6 +9,7 @@ public class Game {
   Ai HAL9000;
   Difficulty difficulty;
   int round;
+  boolean gameStarted = false;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
@@ -19,11 +20,18 @@ public class Game {
     this.HAL9000 = HAL9000;
     this.difficulty = difficulty;
     round = 1;
+    gameStarted = true;
 
     MessageCli.WELCOME_PLAYER.printMessage(player.getPlayerName());
   }
 
   public void play() {
+
+    if (!gameStarted) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     round++;
 
