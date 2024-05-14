@@ -6,17 +6,17 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   Player player;
-  Ai Hal9000;
+  Ai HAL9000;
   Difficulty difficulty;
   int round;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
     Player player = new Player(choice, options[0]);
-    Ai Hal9000 = AiCreator.createAi(difficulty);
+    Ai HAL9000 = AiCreator.createAi(difficulty);
 
     this.player = player;
-    this.Hal9000 = Hal9000;
+    this.HAL9000 = HAL9000;
     this.difficulty = difficulty;
     round = 1;
 
@@ -32,7 +32,7 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Integer.toString(playerInput));
 
     // getting AI input
-    int aiInput = Hal9000.getAiInput(round, player);
+    int aiInput = HAL9000.getAiInput(round, player);
     MessageCli.PRINT_INFO_HAND.printMessage(Ai.aiName, Integer.toString(aiInput));
 
     // determining winner
@@ -59,6 +59,7 @@ public class Game {
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), Ai.aiName);
+      HAL9000.setWinLastRound(true);
     }
   }
 }

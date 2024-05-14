@@ -7,6 +7,11 @@ public class Hard implements Ai {
 
   Strategy strategy;
   String choice;
+  boolean winLastRound = false;
+
+  public void setWinLastRound(boolean winLastRound) {
+    this.winLastRound = winLastRound;
+  }
 
   @Override
   public void setStrategy(Strategy strategy) {
@@ -15,7 +20,11 @@ public class Hard implements Ai {
 
   @Override
   public int getAiInput(int round, Player player) {
-    // setStrategy();
+    if (round <= 3) {
+      setStrategy(new Random());
+    } else {
+      if (winLastRound == false) setStrategy(new Top(player));
+    }
     return strategy.selectNumber();
   }
 

@@ -7,6 +7,12 @@ public class Medium implements Ai {
 
   Strategy strategy;
   String choice;
+  boolean winLastRound = false;
+
+  @Override
+  public void setWinLastRound(boolean winLastRound) {
+    this.winLastRound = winLastRound;
+  }
 
   @Override
   public void setStrategy(Strategy strategy) {

@@ -5,6 +5,12 @@ public class Easy implements Ai {
   // Easy difficulty AI only uses the random strategy
   Strategy strategy;
   String choice;
+  boolean winLastRound = false;
+
+  @Override
+  public void setWinLastRound(boolean winLastRound) {
+    this.winLastRound = winLastRound;
+  }
 
   @Override
   public void setStrategy(Strategy strategy) {

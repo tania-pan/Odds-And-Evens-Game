@@ -2,7 +2,10 @@ package nz.ac.auckland.se281;
 
 public interface Ai {
 
-  String aiName = "HAL-9000";
+  final String aiName = "HAL-9000";
+  boolean winLastRound = false;
+
+  public void setWinLastRound(boolean winLastRound);
 
   public void setStrategy(Strategy strategy);
 
