@@ -6,7 +6,6 @@ public class MediumAi implements Ai {
   then top strategy for the rest of the game */
 
   private Strategy strategy;
-  private String choice;
 
   /**
    * keeps track of whether the AI won the last round or not.
@@ -41,25 +40,5 @@ public class MediumAi implements Ai {
       setStrategy(new TopStrategy(player));
     }
     return strategy.selectNumber();
-  }
-
-  /**
-   * sets the AI's choice of odd or even, which is opposite to the player's choice
-   * 
-   * @param choice  the AI's choice, 
-   */
-  @Override
-  public void setAiChoice(String choice) {
-    this.choice = choice;
-  }
-
-  /**
-   * gets the AI's choice of odd or even, which is opposite to the player's choice
-   * 
-   * @return choice  the AI's choice, 
-   */
-  @Override
-  public String getAiChoice() {
-    return choice;
   }
 }

@@ -4,7 +4,6 @@ public class EasyAi implements Ai {
 
   // Easy difficulty AI only uses the random strategy
   private Strategy strategy;
-  private String choice;
 
   /**
    * keeps track of whether the AI won the last round or not.
@@ -35,25 +34,5 @@ public class EasyAi implements Ai {
   public int getAiInput(int round, Player player) {
     setStrategy(new RandomStrategy());
     return strategy.selectNumber();
-  }
-
-  /**
-   * sets the AI's choice of odd or even, which is opposite to the player's choice.
-   * 
-   * @param choice  the AI's choice, 
-   */
-  @Override
-  public void setAiChoice(String choice) {
-    this.choice = choice;
-  }
-
-  /**
-   * gets the AI's choice of odd or even, which is opposite to the player's choice.
-   * 
-   * @return choice  the AI's choice, 
-   */
-  @Override
-  public String getAiChoice() {
-    return choice;
   }
 }

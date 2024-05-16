@@ -6,7 +6,6 @@ public class HardAi implements Ai {
   then the AI will switch strategies if it loses the previous round */
 
   private Strategy strategy;
-  private String choice;
   private boolean winLastRound = false;
 
   /**
@@ -48,26 +47,5 @@ public class HardAi implements Ai {
     }
 
     return strategy.selectNumber();
-  }
-
-  
-  /**
-   * sets the AI's choice of odd or even, which is opposite to the player's choice
-   * 
-   * @param choice  the AI's choice, 
-   */
-  @Override
-  public void setAiChoice(String choice) {
-    this.choice = choice;
-  }
-
-    /**
-   * gets the AI's choice of odd or even, which is opposite to the player's choice
-   * 
-   * @return choice  the AI's choice, 
-   */
-  @Override
-  public String getAiChoice() {
-    return choice;
   }
 }

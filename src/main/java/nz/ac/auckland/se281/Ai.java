@@ -3,7 +3,6 @@ package nz.ac.auckland.se281;
 public interface Ai {
 
   final String aiName = "HAL-9000";
-  boolean winLastRound = false;
 
   /**
    * keeps track of whether the AI won the last round or not.
@@ -28,17 +27,4 @@ public interface Ai {
    */
   public int getAiInput(int round, Player player);
 
-  /**
-   * sets the AI's choice of odd or even, which is opposite to the player's choice.
-   * 
-   * @param choice  the AI's choice, 
-   */
-  public void setAiChoice(String choice);
-
-  /**
-   * gets the AI's choice of odd or even, which is opposite to the player's choice.
-   * 
-   * @return choice  the AI's choice, 
-   */
-  public String getAiChoice();
 }
