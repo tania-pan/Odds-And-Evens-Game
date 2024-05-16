@@ -1,10 +1,8 @@
 package nz.ac.auckland.se281;
 
-public class Medium implements Ai {
+public class EasyAi implements Ai {
 
-  /* Medium difficulty AI uses random strategy for the first three rounds,
-  then top strategy for the rest of the game */
-
+  // Easy difficulty AI only uses the random strategy
   Strategy strategy;
   String choice;
   boolean winLastRound = false;
@@ -21,11 +19,7 @@ public class Medium implements Ai {
 
   @Override
   public int getAiInput(int round, Player player) {
-    if (round <= 3) {
-      setStrategy(new Random());
-    } else {
-      setStrategy(new Top(player));
-    }
+    setStrategy(new RandomStrategy());
     return strategy.selectNumber();
   }
 

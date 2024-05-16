@@ -2,17 +2,16 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
-// This class is the factory for Hal-9000
-public class AiCreator {
+public class AiFactory {
 
   public static Ai createAi(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
-        return new Easy();
+        return new EasyAi();
       case MEDIUM:
-        return new Medium();
+        return new MediumAi();
       case HARD:
-        return new Hard();
+        return new HardAi();
       default:
         return null;
     }

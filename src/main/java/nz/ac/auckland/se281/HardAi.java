@@ -1,6 +1,6 @@
 package nz.ac.auckland.se281;
 
-public class Hard implements Ai {
+public class HardAi implements Ai {
 
   /* Hard difficulty AI uses the random strategy for the first three rounds,
   then the AI will switch strategies if it loses the previous round */
@@ -21,12 +21,12 @@ public class Hard implements Ai {
   @Override
   public int getAiInput(int round, Player player) {
     if (round <= 3) {
-      setStrategy(new Random());
+      setStrategy(new RandomStrategy());
     } else if (winLastRound == false) {
-      if (strategy instanceof Random) {
-        setStrategy(new Top(player));
-      } else if (strategy instanceof Top) {
-        setStrategy(new Random());
+      if (strategy instanceof RandomStrategy) {
+        setStrategy(new TopStrategy(player));
+      } else if (strategy instanceof TopStrategy) {
+        setStrategy(new RandomStrategy());
       }
     }
 

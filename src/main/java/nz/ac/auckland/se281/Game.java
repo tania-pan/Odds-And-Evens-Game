@@ -5,26 +5,34 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Game {
 
-  Player player;
-  Ai HAL9000;
-  Difficulty difficulty;
-  int round;
-  boolean gameStarted = false;
+  private Player player;
+  private Ai hal9000;
+  private int round;
+  private boolean gameStarted = false;
 
+  /**
+   * starts a new game of Odd Even
+   * 
+   * @param difficulty  difficulty of AI opponent
+   * @param choice  player's guess of odd or even
+   * @param options array that contains the player's name
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
     Player player = new Player(choice, options[0]);
-    Ai HAL9000 = AiCreator.createAi(difficulty);
+    Ai hal9000 = AiFactory.createAi(difficulty);
 
     this.player = player;
-    this.HAL9000 = HAL9000;
-    this.difficulty = difficulty;
+    this.hal9000 = hal9000;
     round = 0;
     gameStarted = true;
 
     MessageCli.WELCOME_PLAYER.printMessage(player.getPlayerName());
   }
 
+/**
+ * starts and plays a new round of an existing game
+ */
   public void play() {
 
     if (!gameStarted) {
@@ -40,13 +48,16 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Integer.toString(playerInput));
 
     // getting AI input
-    int aiInput = HAL9000.getAiInput(round, player);
+    int aiInput = hal9000.getAiInput(round, player);
     MessageCli.PRINT_INFO_HAND.printMessage(Ai.aiName, Integer.toString(aiInput));
 
     // determining winner
     determineWinner(playerInput, aiInput);
   }
 
+  /** 
+   * ends the game and prints the statistics of wins and losses for the player and the AI and prints the winner of the game
+   */
   public void endGame() {
 
     showStats();
@@ -62,6 +73,9 @@ public class Game {
     gameStarted = false;
   }
 
+  /** 
+   * prints the statistics of wins and losses for the player and the AI 
+   */
   public void showStats() {
 
     // if game has not started, do not show stats
@@ -83,6 +97,12 @@ public class Game {
         Integer.toString(player.getWinCount()));
   }
 
+  /**
+   * calculates the winner of a round and prints the outcome of a round
+   * 
+   * @param playerInput the number of fingers that the player selects for a round
+   * @param aiInput the number of fingers that the AI selects for a round
+   */
   public void determineWinner(int playerInput, int aiInput) {
     int result = playerInput + aiInput;
     Choice resultParity;
@@ -96,12 +116,12 @@ public class Game {
     if (resultParity.equals(player.getChoice())) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), player.getPlayerName());
-      HAL9000.setWinLastRound(false);
+      hal9000.setWinLastRound(false);
       player.addWin(true);
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), Ai.aiName);
-      HAL9000.setWinLastRound(true);
+      hal9000.setWinLastRound(true);
     }
   }
 }

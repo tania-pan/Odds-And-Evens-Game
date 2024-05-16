@@ -1,6 +1,6 @@
 package nz.ac.auckland.se281;
 
-public class Random implements Strategy {
+public class RandomStrategy implements Strategy {
 
   @Override
   public int selectNumber() {
