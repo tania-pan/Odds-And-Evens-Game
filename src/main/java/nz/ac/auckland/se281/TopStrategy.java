@@ -11,7 +11,9 @@ public class TopStrategy implements Strategy {
   }
 
   /**
+   * getting the number of fingers to play using the top strategy.
    * 
+   * @return  number of fingers to play
    */
   @Override
   public int selectNumber() {

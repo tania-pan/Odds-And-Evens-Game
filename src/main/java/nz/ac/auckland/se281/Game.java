@@ -11,11 +11,11 @@ public class Game {
   private boolean gameStarted = false;
 
   /**
-   * starts a new game of Odd Even
+   * starts a new game of Odd or Even.
    * 
    * @param difficulty  difficulty of AI opponent
    * @param choice  player's guess of odd or even
-   * @param options array that contains the player's name
+   * @param options array that contains the player's inputs of name, difficulty and choice
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
@@ -31,7 +31,7 @@ public class Game {
   }
 
 /**
- * starts and plays a new round of an existing game
+ * starts and plays a new round of an existing game.
  */
   public void play() {
 
@@ -56,7 +56,7 @@ public class Game {
   }
 
   /** 
-   * ends the game and prints the statistics of wins and losses for the player and the AI and prints the winner of the game
+   * ends the game and prints the statistics of wins and losses for the player and the AI and prints the winner of the game.
    */
   public void endGame() {
 
@@ -74,7 +74,7 @@ public class Game {
   }
 
   /** 
-   * prints the statistics of wins and losses for the player and the AI 
+   * prints the statistics of wins and losses for the player and the AI.
    */
   public void showStats() {
 
@@ -98,7 +98,7 @@ public class Game {
   }
 
   /**
-   * calculates the winner of a round and prints the outcome of a round
+   * calculates the winner of a round and prints the outcome of a round.
    * 
    * @param playerInput the number of fingers that the player selects for a round
    * @param aiInput the number of fingers that the AI selects for a round
@@ -117,7 +117,7 @@ public class Game {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), player.getPlayerName());
       hal9000.setWinLastRound(false);
-      player.addWin(true);
+      player.addWin();
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), Ai.aiName);
