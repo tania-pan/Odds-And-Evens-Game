@@ -12,9 +12,9 @@ public class Game {
 
   /**
    * starts a new game of Odd or Even.
-   * 
-   * @param difficulty  difficulty of AI opponent
-   * @param choice  player's guess of odd or even
+   *
+   * @param difficulty difficulty of AI opponent
+   * @param choice player's guess of odd or even
    * @param options array that contains the player's inputs of name, difficulty and choice
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
@@ -30,9 +30,7 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(player.getPlayerName());
   }
 
-/**
- * starts and plays a new round of an existing game.
- */
+  /** starts and plays a new round of an existing game. */
   public void play() {
 
     if (!gameStarted) {
@@ -55,8 +53,9 @@ public class Game {
     determineWinner(playerInput, aiInput);
   }
 
-  /** 
-   * ends the game and prints the statistics of wins and losses for the player and the AI and prints the winner of the game.
+  /**
+   * ends the game and prints the statistics of wins and losses for the player and the AI and prints
+   * the winner of the game.
    */
   public void endGame() {
 
@@ -73,9 +72,7 @@ public class Game {
     gameStarted = false;
   }
 
-  /** 
-   * prints the statistics of wins and losses for the player and the AI.
-   */
+  /** prints the statistics of wins and losses for the player and the AI. */
   public void showStats() {
 
     // if game has not started, do not show stats
@@ -99,7 +96,7 @@ public class Game {
 
   /**
    * calculates the winner of a round and prints the outcome of a round.
-   * 
+   *
    * @param playerInput the number of fingers that the player selects for a round
    * @param aiInput the number of fingers that the AI selects for a round
    */

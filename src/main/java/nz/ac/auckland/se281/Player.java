@@ -15,9 +15,9 @@ public class Player {
     this.choice = choice;
   }
 
-  /** 
+  /**
    * gets the number of fingers the player wishes to play for that round.
-   * 
+   *
    * @return returns the number of finger the player wishes to play for that round
    */
   public int getPlayerInput() {
@@ -49,53 +49,51 @@ public class Player {
     return Integer.parseInt(playerInput);
   }
 
-  /**  
+  /**
    * gets player name.
-   * 
+   *
    * @return returns player name
    */
   public String getPlayerName() {
     return playerName;
   }
 
-  /**  
+  /**
    * gets player choice for the game.
-   * 
+   *
    * @return returns player's choice
    */
   public Choice getChoice() {
     return choice;
   }
 
-  /**  
+  /**
    * gets the number of odd inputs the player has played.
-   * 
+   *
    * @return returns the odd number input count
    */
   public int getOdd() {
     return oddCount;
   }
 
-  /**  
+  /**
    * gets the number of even inputs the player has played.
-   * 
+   *
    * @return returns the even number input count
    */
   public int getEven() {
     return evenCount;
   }
 
-  /**
-   * increases the number of rounds the player has won.
-   */
+  /** increases the number of rounds the player has won. */
   public void addWin() {
     this.winCount++;
   }
 
   /**
    * gets the number of rounds the player has won.
-   * 
-   * @return  returns the number of rounds the player has won
+   *
+   * @return returns the number of rounds the player has won
    */
   public int getWinCount() {
     return winCount;

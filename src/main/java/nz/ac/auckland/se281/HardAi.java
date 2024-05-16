@@ -10,16 +10,17 @@ public class HardAi implements Ai {
 
   /**
    * keeps track of whether the AI won the last round or not.
-   * 
-   * @param winLastRound a boolean that is true if the AI won the last round and false if the AI lost the last round
+   *
+   * @param winLastRound a boolean that is true if the AI won the last round and false if the AI
+   *     lost the last round
    */
   public void setWinLastRound(boolean winLastRound) {
     this.winLastRound = winLastRound;
   }
 
-  /** 
+  /**
    * sets the strategy the AI will use for the round.
-   * 
+   *
    * @param strategy the strategy the AI will use
    */
   @Override
@@ -27,9 +28,9 @@ public class HardAi implements Ai {
     this.strategy = strategy;
   }
 
-  /** 
+  /**
    * selects the strategy the hard level AI will use and gets the number of fingers the AI will play
-   * 
+   *
    * @param round the round that is being played
    * @param player the instance of the player
    * @return the number of fingers the AI will play
