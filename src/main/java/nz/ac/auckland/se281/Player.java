@@ -21,13 +21,18 @@ public class Player {
    * @return returns the number of finger the player wishes to play for that round
    */
   public int getPlayerInput() {
-    String playerInput;
+    String playerInput = null;
     int inputInt = 0;
+    boolean isInputInteger = false;
 
-    MessageCli.ASK_INPUT.printMessage();
-    playerInput = Utils.scanner.nextLine();
-    if (Utils.isInteger(playerInput)) {
-      inputInt = Integer.parseInt(playerInput);
+    // input must be an integer
+    while (!isInputInteger) {
+      MessageCli.ASK_INPUT.printMessage();
+      playerInput = Utils.scanner.nextLine();
+      if (Utils.isInteger(playerInput)) {
+        isInputInteger = true;
+        inputInt = Integer.parseInt(playerInput);
+      }
     }
 
     // input must be an integer between 0-5
