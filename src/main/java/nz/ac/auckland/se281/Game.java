@@ -61,6 +61,11 @@ public class Game {
    */
   public void endGame() {
 
+    if (!gameStarted) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     showStats();
 
     // print winner of the game or tie
