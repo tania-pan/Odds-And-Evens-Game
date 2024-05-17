@@ -29,7 +29,8 @@ public class HardAi implements Ai {
   }
 
   /**
-   * selects the strategy the hard level AI will use and gets the number of fingers the AI will play
+   * selects the strategy the hard level AI will use and gets the number of fingers the AI will
+   * play.
    *
    * @param round the round that is being played
    * @param player the instance of the player
@@ -38,8 +39,10 @@ public class HardAi implements Ai {
   @Override
   public int getAiInput(int round, Player player) {
     if (round <= 3) {
+      // for the first three rounds, the AI will always use the random strategy
       setStrategy(new RandomStrategy());
     } else if (winLastRound == false) {
+      // after round 3, if the AI lost the previous round, it will switch strategies
       if (strategy instanceof RandomStrategy) {
         setStrategy(new TopStrategy(player));
       } else if (strategy instanceof TopStrategy) {

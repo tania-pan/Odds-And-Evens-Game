@@ -19,9 +19,11 @@ public class Game {
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
+    // initialise player and AI
     Player player = new Player(choice, options[0]);
     Ai hal9000 = AiFactory.createAi(difficulty);
 
+    // overrides or resets particulars from previous game
     this.player = player;
     this.hal9000 = hal9000;
     round = 0;
@@ -61,6 +63,7 @@ public class Game {
 
     showStats();
 
+    // print winner of the game or tie
     if (player.getWinCount() > (round - player.getWinCount())) {
       MessageCli.PRINT_END_GAME.printMessage(player.getPlayerName());
     } else if ((round - player.getWinCount()) > player.getWinCount()) {
@@ -104,12 +107,14 @@ public class Game {
     int result = playerInput + aiInput;
     Choice resultParity;
 
+    // determine if the sum of the player and AI inputs is odd or even
     if (Utils.isEven(result)) {
       resultParity = Choice.EVEN;
     } else {
       resultParity = Choice.ODD;
     }
 
+    // determine winner of the round and print outcomes
     if (resultParity.equals(player.getChoice())) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage(
           Integer.toString(result), resultParity.name(), player.getPlayerName());

@@ -50,7 +50,7 @@ public class Player {
   }
 
   /**
-   * gets player name.
+   * gets name of the player
    *
    * @return returns player name
    */
