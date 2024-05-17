@@ -21,19 +21,20 @@ public class TopStrategy implements Strategy {
     // if playerChoice is odd, ai picks same parity number as player
     // if playerChoice is even, ai picks different parity number as player
 
-    if (player.getOdd() > player.getEven()) {
+    if (player.getOdd() > player.getEven()) { // player will likely choose odd
       if (player.getChoice().equals(Choice.ODD)) {
-        return Utils.getRandomOddNumber();
+        return Utils.getRandomOddNumber(); // odd + odd = even
       } else if (player.getChoice().equals(Choice.EVEN)) {
-        return Utils.getRandomEvenNumber();
+        return Utils.getRandomEvenNumber(); // odd + even = odd
       }
-    } else if (player.getEven() > player.getOdd()) {
+    } else if (player.getEven() > player.getOdd()) { // player will likely choose even
       if (player.getChoice().equals(Choice.ODD)) {
-        return Utils.getRandomEvenNumber();
+        return Utils.getRandomEvenNumber(); // even + even = even
       } else if (player.getChoice().equals(Choice.EVEN)) {
-        return Utils.getRandomOddNumber();
+        return Utils.getRandomOddNumber(); // even + odd = odd
       }
     } else {
+      // player has picked an equal amount of odds and evens, AI will pick a random number
       return Utils.getRandomNumberRange(0, 5);
     }
 
