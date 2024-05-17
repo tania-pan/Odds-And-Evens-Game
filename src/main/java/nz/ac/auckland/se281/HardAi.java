@@ -49,7 +49,6 @@ public class HardAi implements Ai {
         setStrategy(new RandomStrategy());
       }
     }
-
     return strategy.selectNumber();
   }
 }

@@ -43,12 +43,12 @@ public class Game {
     round++;
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
 
-    // getting human player input
-    int playerInput = player.getPlayerInput();
-    MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Integer.toString(playerInput));
-
-    // getting AI input
+    // getting AI and player inputs for the round
     int aiInput = hal9000.getAiInput(round, player);
+    int playerInput = player.getPlayerInput();
+
+    // printing AI and player inputs for the round
+    MessageCli.PRINT_INFO_HAND.printMessage(player.getPlayerName(), Integer.toString(playerInput));
     MessageCli.PRINT_INFO_HAND.printMessage(Ai.aiName, Integer.toString(aiInput));
 
     // determining winner
