@@ -33,6 +33,7 @@ public class Player {
     // input must be an integer between 0-5
     while (!(inputInt <= 5) || !(inputInt >= 0)) {
       MessageCli.INVALID_INPUT.printMessage();
+      MessageCli.ASK_INPUT.printMessage();
       playerInput = Utils.scanner.nextLine();
       if (Utils.isInteger(playerInput)) {
         inputInt = Integer.parseInt(playerInput);
